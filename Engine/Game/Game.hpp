@@ -7,7 +7,7 @@ namespace RendererEngine
 {
 	class Texture2D;
 	class ShaderProgram;
-	class Sprite;
+	class AnimatedSprite;
 }
 
 class Game

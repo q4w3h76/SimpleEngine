@@ -17,7 +17,7 @@ namespace RendererEngine
 
 	void AnimatedSprite::InsertState(std::string states)
 	{
-		mStates.push_back(std::move(states));
+		m_states.push_back(std::move(states));
 	}
 
 	void AnimatedSprite::Renderer()
@@ -27,10 +27,10 @@ namespace RendererEngine
 			Texture2D::SubTexture SubTexture =
 				m_texture->GetSubTexture(m_currentAnimation[m_currentFrame]);
 			m_vao.AddVertexBufferSubObject({
-				SubTexture.rightTopUV,
-				{ SubTexture.leftBottomUV.x, SubTexture.rightTopUV.y },
-				SubTexture.leftBottomUV,
-				{ SubTexture.rightTopUV.x, SubTexture.leftBottomUV.y }
+				SubTexture.m_rightTopUV,
+				{ SubTexture.m_leftBottomUV.x, SubTexture.m_rightTopUV.y },
+				SubTexture.m_leftBottomUV,
+				{ SubTexture.m_rightTopUV.x, SubTexture.m_leftBottomUV.y }
 				}, m_textureCoordsVBO);
 			m_dirty = false;
 		}

@@ -55,7 +55,7 @@ namespace RendererEngine
 	void VAO::AddIndices(const std::vector<unsigned int>& data)
 	{
 		assert(m_indicesBuffer == 0);
-		mIndicesCount = data.size();
+		m_indicesCount = data.size();
 		glGenBuffers(1, &m_indicesBuffer);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indicesBuffer);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, data.size() * sizeof(unsigned int),
@@ -70,7 +70,7 @@ namespace RendererEngine
 		for(size_t i = 0; i < m_buffers.size(); ++i)
 			glEnableVertexAttribArray(i);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indicesBuffer);
-		glDrawElements(type, mIndicesCount, GL_UNSIGNED_INT, nullptr);
+		glDrawElements(type, m_indicesCount, GL_UNSIGNED_INT, nullptr);
 		for(size_t i = 0; i < m_buffers.size(); ++i)
 			glDisableVertexAttribArray(i);
 	}

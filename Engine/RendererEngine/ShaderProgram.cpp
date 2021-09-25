@@ -44,7 +44,7 @@ namespace RendererEngine
 		glUseProgram(m_program);
 	}
 
-	void ShaderProgram::BindAttribute(const unsigned int index, const std::string name)
+	void ShaderProgram::BindAttribute(const unsigned int index, const std::string& name)
 	{
 		glBindAttribLocation(m_program, index, name.c_str());
 	}

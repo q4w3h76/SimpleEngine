@@ -20,7 +20,7 @@ void Window::Init()
 {
 	if(!glfwInit())
 		throw std::runtime_error("Failed to initialize GLFW");
-	mWindow = glfwCreateWindow(m_width, m_height, m_title.c_str(), nullptr, nullptr);
+	m_window = glfwCreateWindow(m_width, m_height, m_title.c_str(), nullptr, nullptr);
 	glfwSetWindowSizeLimits(m_window, m_width, m_height, m_width, m_height);
 	glfwSetWindowPos(m_window, 700.0f, 150.0f);
 

@@ -19,7 +19,7 @@ namespace PhysicsEngine {
 	void Mass::Simulate(const float delta)
 	{
 		const float frictionForce = 0.00003f;
-		m_acceleration += (m_force / mass) * delta;
+		m_acceleration += (m_force / m_mass) * delta;
 
 		if (m_acceleration.x > 0)
 			m_acceleration.x -= frictionForce;

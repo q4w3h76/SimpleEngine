@@ -21,7 +21,7 @@ Object::Object(RendererEngine::Texture2D* texture, RendererEngine::ShaderProgram
 		const std::string& initalSubTexture)
 		: m_texture(texture), m_shader(shader), m_initalSubTexture(initalSubTexture)
 {
-	mSprite = new RendererEngine::AnimatedSprite(m_texture, m_shader, m_position, m_size,
+	m_sprite = new RendererEngine::AnimatedSprite(m_texture, m_shader, position, m_size,
 							rotation, m_initalSubTexture);
 }
 
@@ -43,9 +43,4 @@ void Object::Update(const double delta)
 void Object::StartAnimation(const std::string& state, const unsigned int animationLength)
 {
 	m_sprite->StartAnimation(m_initalSubTexture + state, animationLength);
-}
-
-unsigned int Object::GetCoverageArea() const
-{
-	return coverageArea;
 }

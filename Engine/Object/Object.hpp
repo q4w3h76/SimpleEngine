@@ -22,12 +22,10 @@ public:
 	virtual unsigned int Attack() = 0; //return damage
 	virtual void Move(const glm::vec2& position) = 0;
 	void StartAnimation(const std::string& state, const unsigned int animationLength);
-	unsigned int GetCoverageArea() const;
 protected:
 	RendererEngine::AnimatedSprite* m_sprite;
 	std::string m_initalSubTexture;
 	const glm::vec2 m_size = { 0.7f, 0.65f };
-	unsigned int m_coverageArea = 1;
 
 	// protected method
 	void SetState(const std::string& state);

@@ -16,7 +16,7 @@ namespace RendererEngine
 			std::string m_name;
 			
 			SubTexture(const std::string& name, const glm::vec2& leftBottomUV,
-					const glm::vec2& m_rightTopUV) : m_name(name),
+					const glm::vec2& rightTopUV) : m_name(name),
 					m_leftBottomUV(leftBottomUV), m_rightTopUV(rightTopUV) {}
 			SubTexture() : m_leftBottomUV(0.0f), m_rightTopUV(1.0f) {}
 		};

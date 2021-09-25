@@ -12,7 +12,7 @@ namespace RendererEngine
 		const glm::vec2& size, const float rotation,
 		const std::string& initalSubTexture)
 		: m_texture(texture), m_shader(shader),
-		m_position(position), m_size(size), mRotation(rotation)
+		m_position(position), m_size(size), m_rotation(rotation)
 	{
 		m_vao.Init();
 		m_vertexCoordsVBO = m_vao.AddVertexBufferObject({
@@ -24,10 +24,10 @@ namespace RendererEngine
 		Texture2D::SubTexture SubTexture =
 			m_texture->GetSubTexture(std::move(initalSubTexture));
 		m_textureCoordsVBO = m_vao.AddVertexBufferObject({
-			SubTexture.rightTopUV,
-			{ SubTexture.leftBottomUV.x, SubTexture.rightTopUV.y },
-			SubTexture.leftBottomUV,
-			{ SubTexture.rightTopUV.x, SubTexture.leftBottomUV.y }
+			SubTexture.m_rightTopUV,
+			{ SubTexture.m_leftBottomUV.x, SubTexture.m_rightTopUV.y },
+			SubTexture.m_leftBottomUV,
+			{ SubTexture.m_rightTopUV.x, SubTexture.m_leftBottomUV.y }
 			});
 		m_vao.AddIndices({ 0, 1, 3, 2, 1, 3 });
 		m_shader->Uniform1i("slot", 0);

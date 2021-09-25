@@ -10,12 +10,12 @@
 // public method
 Game::Game() : m_atlasTexture(new RendererEngine::Texture2D("atlas.png")),
 	m_shader(new RendererEngine::ShaderProgram("shader")),
-	sprite(new RendererEngine::AnimatedSprite(m_atlasTexture, m_shader, { 0.0f, 0.0f }, { 1.0, 1.0 }, 0.0f, "first"))
+	sprite(new RendererEngine::AnimatedSprite(m_atlasTexture, m_shader, { 0.0f, 0.0f }, { 1.0, 1.0 }, 0.0f, "object"))
 {
-	m_atlasTexture->LoadTextureAtlas(std::vector<std::string>{ "first", "second" }, 8, 8);
-	sprite->InsertState("first");
-	sprite->InsertState("second");
-	sprite->SetState("first");
+	m_atlasTexture->LoadTextureAtlas(std::vector<std::string>{ "objectDefault", "objectAttack" }, 25, 25);
+	sprite->InsertState("objectDefault");
+	sprite->InsertState("objectAttack");
+	sprite->SetState("objectDefault");
 }
 
 Game::~Game()
@@ -38,5 +38,5 @@ void Game::Update(const double delta)
 void Game::Callback(int key, int action)
 {
 	if(key == GLFW_KEY_SPACE)
-		sprite->StartAnimation("second", 10000);
+		sprite->StartAnimation("objectAttack", 500);
 }
