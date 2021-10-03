@@ -9,6 +9,7 @@ add_executable (Engine "main.cpp" "Window/Window.cpp" "Window/Window.hpp"
 	"RendererEngine/AnimatedSprite.cpp" "RendererEngine/AnimatedSprite.hpp"
 	"PhysicsEngine/Mass.cpp" "PhysicsEngine/Mass.hpp"
 	"Game/Game.cpp" "Game/Game.hpp"
-	"Object/Object.cpp" "Object/Object.hpp")
+	"Object/Object.cpp" "Object/Object.hpp"
+	"Object/Player.cpp" "Object/Player.hpp")
 
 target_link_libraries (Engine glfw libglew_static)
