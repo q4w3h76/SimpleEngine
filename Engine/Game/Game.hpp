@@ -7,8 +7,9 @@ namespace RendererEngine
 {
 	class Texture2D;
 	class ShaderProgram;
-	class AnimatedSprite;
 }
+
+class Player;
 
 class Game
 {
@@ -21,7 +22,7 @@ public:
 private:
 	RendererEngine::Texture2D* m_atlasTexture;
 	RendererEngine::ShaderProgram* m_shader;
-	RendererEngine::AnimatedSprite* sprite;
+	Player* m_player;
 };
 
 #endif
