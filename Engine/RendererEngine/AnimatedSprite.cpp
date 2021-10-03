@@ -11,7 +11,7 @@ namespace RendererEngine
 		: Sprite(texture, shader, position, size, rotation, initalSubTexture),
 		m_initalSubTexture(initalSubTexture)
 	{
-		m_currentAnimation = m_states.end();
+		m_currentAnimation = m_states.begin();
 	}
 
 
@@ -43,14 +43,16 @@ namespace RendererEngine
 			if(m_auxilirayDelta >= m_animationLength)
 			{
 				m_auxilirayDelta = 0;
-				SetState(m_initalSubTexture + "Default");
+				SetState(m_initalSubTexture + "Stop" + m_lastDirection);
 			}
 			else
 				m_auxilirayDelta += delta;
 	}
 
-	void AnimatedSprite::StartAnimation(const std::string& state, const unsigned int aniLen)
+	void AnimatedSprite::StartAnimation(const std::string& state,
+        const std::string& direction, unsigned int aniLen)
 	{
+		m_lastDirection = direction;
 		m_animationLength = aniLen;
 		SetState(state);
 		m_auxilirayDelta += 1;
@@ -73,6 +75,5 @@ namespace RendererEngine
 			m_currentAnimation = it;
 			m_dirty = true;
 		}
-
 	}
 }
