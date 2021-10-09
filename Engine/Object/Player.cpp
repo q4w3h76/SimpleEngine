@@ -23,7 +23,7 @@ Player::~Player()
 
 void Player::Collision()
 {
-
+	CollisionWithBorder();
 }
 
 void Player::Control(int key)
@@ -57,4 +57,21 @@ void Player::Control(int key)
 		m_mass->ApplyForce({ -force, 0.0f });
 		StartAnimation("Run", 500);
 	}
+}
+
+
+//private method
+
+void Player::CollisionWithBorder()
+{
+	glm::vec2 border = { 3.41f, 3.0f };
+	glm::vec2 curPos = m_mass->GetPosition();
+	if (curPos.x >= border.x)
+		m_mass->SetPosition({ -border.x, curPos.y });
+	if (curPos.x <= -border.x)
+		m_mass->SetPosition({ border.x, curPos.y });
+	if (curPos.y >= border.x)
+		m_mass->SetPosition({ curPos.x, -border.y });
+	if (curPos.y <= -border.x)
+		m_mass->SetPosition({ curPos.x, border.y });
 }

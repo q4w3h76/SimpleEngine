@@ -9,6 +9,8 @@ public:
 	~Player();
 	void Collision() override;
 	void Control(int key) override;
+private:
+	void CollisionWithBorder();
 };
 
 #endif
