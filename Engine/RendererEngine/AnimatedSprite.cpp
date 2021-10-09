@@ -11,7 +11,7 @@ namespace RendererEngine
 		: Sprite(texture, shader, position, size, rotation, initalSubTexture),
 		m_initalSubTexture(initalSubTexture)
 	{
-		m_currentAnimation = m_states.begin();
+		m_currentAnimation = m_states.end();
 	}
 
 
@@ -60,20 +60,19 @@ namespace RendererEngine
 
 	void AnimatedSprite::SetState(const std::string& state)
 	{
-		std::vector<std::string>::const_iterator it;
+		std::vector<std::string>::const_iterator it = m_states.begin();
 		for(it = m_states.begin(); it != m_states.end(); ++it)
 			if(*it == state)
 				break;
+
 		if (it == m_states.end())
 		{
 			std::cerr << "Can't find animation state " << state << std::endl;
 			return;
 		}
-		if (it != m_currentAnimation)
-		{
-			m_currentFrame = 0;
-			m_currentAnimation = it;
-			m_dirty = true;
-		}
+
+		m_currentFrame = 0;
+		m_currentAnimation = it;
+		m_dirty = true;
 	}
 }
