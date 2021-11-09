@@ -55,7 +55,7 @@ void Object::Update(const double delta)
 	m_mass->Simulate(delta);
 	m_mass->Init();
 	m_sprite->SetPosition(m_mass->GetPosition());
-	m_sprite->Update(delta);
+	m_sprite->Update(delta, m_currentState);
 	Collision();
 }
 

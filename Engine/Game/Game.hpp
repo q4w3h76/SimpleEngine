@@ -10,6 +10,7 @@ namespace RendererEngine
 }
 
 class Player;
+class Star;
 
 class Game
 {
@@ -23,6 +24,7 @@ private:
 	RendererEngine::Texture2D* m_atlasTexture;
 	RendererEngine::ShaderProgram* m_shader;
 	Player* m_player;
+	Star* m_star;
 };
 
 #endif

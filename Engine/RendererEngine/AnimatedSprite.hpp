@@ -14,10 +14,11 @@ namespace RendererEngine
 		~AnimatedSprite() = default;
 		void InsertState(std::string state);
 		void Renderer() override;
-		void Update(const double delta);
+		void Update(const double delta, const std::string& state);
 		void StartAnimation(const std::string& state,
                             const std::string& direction, const unsigned int aniLen);
 		void SetState(const std::string& state);
+		glm::vec2 GetPosition();
 	private:
 		std::vector<std::string> m_states;
 		std::string m_lastDirection;

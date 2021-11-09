@@ -27,7 +27,6 @@ namespace RendererEngine
 		VAO m_vao;
 		unsigned int m_vertexCoordsVBO;
 		unsigned int m_textureCoordsVBO;
-	private:
 		glm::vec2 m_position;
 		glm::vec2 m_size;
 		float m_rotation;

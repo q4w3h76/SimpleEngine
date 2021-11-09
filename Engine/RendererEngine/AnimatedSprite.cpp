@@ -37,13 +37,13 @@ namespace RendererEngine
 		Sprite::Renderer();
 	}
 
-	void AnimatedSprite::Update(const double delta)
+	void AnimatedSprite::Update(const double delta, const std::string& state)
 	{
 		if(m_auxilirayDelta != 0)
 			if(m_auxilirayDelta >= m_animationLength)
 			{
 				m_auxilirayDelta = 0;
-				SetState(m_initalSubTexture + "Stop" + m_lastDirection);
+				SetState(m_initalSubTexture + state + m_lastDirection);
 			}
 			else
 				m_auxilirayDelta += delta;
@@ -74,5 +74,10 @@ namespace RendererEngine
 		m_currentFrame = 0;
 		m_currentAnimation = it;
 		m_dirty = true;
+	}
+
+	glm::vec2 AnimatedSprite::GetPosition()
+	{
+		return m_position;
 	}
 }

@@ -10,6 +10,8 @@ add_executable (Engine "main.cpp" "Window/Window.cpp" "Window/Window.hpp"
 	"PhysicsEngine/Mass.cpp" "PhysicsEngine/Mass.hpp"
 	"Game/Game.cpp" "Game/Game.hpp"
 	"Object/Object.cpp" "Object/Object.hpp"
-	"Object/Player.cpp" "Object/Player.hpp")
+	"Object/Player.cpp" "Object/Player.hpp"
+	"Object/Star.cpp" "Object/Star.hpp"
+	"Object/Meteorite.cpp" "Object/Meteorite.hpp")
 
 target_link_libraries (Engine glfw libglew_static)

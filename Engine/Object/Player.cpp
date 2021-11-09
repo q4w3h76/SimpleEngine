@@ -16,11 +16,6 @@ Player::Player(RendererEngine::Texture2D* texture, RendererEngine::ShaderProgram
 		SetState(m_currentDirection);
 }
 
-Player::~Player()
-{
-
-}
-
 void Player::Collision()
 {
 	CollisionWithBorder();
