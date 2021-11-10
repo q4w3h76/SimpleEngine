@@ -67,4 +67,9 @@ namespace PhysicsEngine {
 	{
 		m_position = position;
 	}
+
+	void Mass::SetForce(const glm::vec2& force)
+	{
+		m_force = force;
+	}
 }

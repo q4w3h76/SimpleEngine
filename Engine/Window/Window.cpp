@@ -3,7 +3,6 @@
 #include "Window.hpp"
 #include <stdexcept>
 #include "../Game/Game.hpp"
-
 static Game* game;
 
 Window::Window(const std::string title, const unsigned int width, const unsigned int height)
@@ -30,11 +29,11 @@ void Window::Init()
 	glewExperimental = true;
 	if(glewInit() != GLEW_OK)
 		throw std::runtime_error("Failed to initialize GLEW");
-	game = new Game();
 }
 
 void Window::Loop()
 {
+	game = new Game(1.0f);
 	glfwSetKeyCallback(m_window, KeyCallback);
 
 	double lastTime = glfwGetTime();

@@ -3,7 +3,7 @@
 #include "../PhysicsEngine/Mass.hpp"
 
 Player::Player(RendererEngine::Texture2D* texture, RendererEngine::ShaderProgram* shader)
-	: Object(texture, shader, 2000.0f, { 0.0f, 0.0f }, 0.0f, "player")
+	: Object(texture, shader, 2000.0f, { 0.0f, 0.0f }, 0.0f, "player", "Stop")
 {
 		InsertState("Stop", "Top");
 		InsertState("Stop", "Bottom");

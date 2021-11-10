@@ -30,8 +30,8 @@ bool Object::CheckCollision(const glm::vec2& position)
 // public method
 Object::Object(RendererEngine::Texture2D* texture, RendererEngine::ShaderProgram* shader,
 		const float mass, const glm::vec2& position,
-		const float rotation, const std::string& initalSubTexture)
-		: m_texture(texture), m_shader(shader), m_initalSubTexture(initalSubTexture)
+		const float rotation, const std::string& initalSubTexture, const std::string& startState)
+		: m_texture(texture), m_shader(shader), m_initalSubTexture(initalSubTexture), m_currentState(startState)
 {
 	m_sprite = new RendererEngine::AnimatedSprite(m_texture, m_shader, position, m_size,
 							rotation, m_initalSubTexture);
@@ -73,4 +73,13 @@ glm::vec2 Object::GetPosition()
 std::string Object::GetDirection()
 {
 	return m_currentDirection;
+}
+
+
+void Object::SetPosition(glm::vec2 position)
+{
+	m_mass->SetPosition(position);
+	m_mass->SetForce({ 0.0f, 0.0f });
+	m_mass->SetAcceleration({ 0.0f, 0.0f });
+	m_sprite->SetPosition(position);
 }

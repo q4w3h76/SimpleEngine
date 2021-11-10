@@ -20,7 +20,7 @@ class Object
 public:
 	Object(RendererEngine::Texture2D* texture, RendererEngine::ShaderProgram* shader,
 		const float mass, const glm::vec2& position,
-		const float rotation, const std::string& initalSubTexture);
+		const float rotation, const std::string& initalSubTexture, const std::string& startState);
 	virtual ~Object();
 	void Renderer();
 	void Update(const double delta);
@@ -29,6 +29,7 @@ public:
 	void StartAnimation(const std::string& state, const unsigned int animationLength);
 	glm::vec2 GetPosition();
 	std::string GetDirection();
+	void SetPosition(glm::vec2 position);
 protected:
 	RendererEngine::AnimatedSprite* m_sprite;
 	PhysicsEngine::Mass* m_mass;

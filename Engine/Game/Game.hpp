@@ -11,11 +11,12 @@ namespace RendererEngine
 
 class Player;
 class Star;
+class Meteorite;
 
 class Game
 {
 public:
-	Game();
+	Game(const float speed);
 	~Game();
 	void Renderer();
 	void Update(const double delta);
@@ -25,6 +26,9 @@ private:
 	RendererEngine::ShaderProgram* m_shader;
 	Player* m_player;
 	Star* m_star;
+	Meteorite* m_meteorite;
+
+	bool CheckCollision(const glm::vec2& position1, const glm::vec2& position2);
 };
 
 #endif

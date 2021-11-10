@@ -23,6 +23,7 @@ namespace PhysicsEngine {
 		glm::vec2 GetAcceleration() const;
 		void SetAcceleration(const glm::vec2 acceleration);
 		void SetPosition(const glm::vec2& pos);
+		void SetForce(const glm::vec2& force);
 	};
 }
 
